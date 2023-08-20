@@ -5,8 +5,8 @@ public class DefaultBarLayout implements BarLayout {
     // FIELDS
     private String leftBarBorderChar = CharLibrary.NOTHING ;
     private String rightBarBorderChar = CharLibrary.NOTHING ;;
-    private String completedStepChar = CharLibrary.SQUARE_CONTAINING_SMALL_SQUARE;
-    private String uncompletedStepChar = CharLibrary.SQUARE;
+    private String completedStepChar = CharLibrary.DOT_FILED;
+    private String uncompletedStepChar = CharLibrary.DOT_EMPTY;
 
     // METHODS
     @Override
@@ -18,9 +18,9 @@ public class DefaultBarLayout implements BarLayout {
         // DRAWING LEFT BAR LABEL
         if (prettyLoadingBar.getLabelPosition() == 0) System.out.print(prettyLoadingBar.getLabel() + "\t");
 
-        // DRAWING PERCENT
+        // DRAWING LEFT PERCENT
         if (prettyLoadingBar.getPercentageDisplayPosition() == 0 && prettyLoadingBar.isDisplayPercentage()) {
-            System.out.printf("%.0f%%\t", prettyLoadingBar.getProgressPercentage());
+            System.out.printf("%.0f%%  \t", prettyLoadingBar.getProgressPercentage());
         }
 
         // DRAWING LEFT BAR BORDER
@@ -37,9 +37,9 @@ public class DefaultBarLayout implements BarLayout {
         // DRAWING RIGHT BAR BORDER
         System.out.print(rightBarBorderChar + "\t");
 
-        // DRAWING PERCENT
+        // DRAWING RIGHT PERCENT
         if (prettyLoadingBar.getPercentageDisplayPosition() == 1 && prettyLoadingBar.isDisplayPercentage()) {
-            System.out.printf("%.0f%%\t", prettyLoadingBar.getProgressPercentage());
+            System.out.printf("%.0f%%  \t", prettyLoadingBar.getProgressPercentage());
         }
 
         // DRAWING RIGHT BAR LABEL
@@ -50,10 +50,22 @@ public class DefaultBarLayout implements BarLayout {
 
         // BACK CURSOR TO START POSITION
         System.out.print("\r");
-
-
-
-
-
     }
+
+    @Override
+    public void setBorderCharacters(String leftBorderCharacter, String rightBorderCharacter) {
+        this.leftBarBorderChar = leftBorderCharacter;
+        this.rightBarBorderChar = rightBorderCharacter;
+    }
+
+    @Override
+    public void setCompletedStepChar(String character) {
+        this.completedStepChar = character;
+    }
+
+    @Override
+    public void setUncompletedStepChar(String character) {
+        this.uncompletedStepChar = character;
+    }
+
 }

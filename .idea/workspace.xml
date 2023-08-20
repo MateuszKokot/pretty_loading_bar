@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="pretty_loading_bar:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69e64ea2-8525-417c-8672-e2193922e387" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/BarLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/CharLibrary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/DefaultBarLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/PrettyLoadingBar.java" afterDir="false" />
+    <list default="true" id="69e64ea2-8525-417c-8672-e2193922e387" name="Changes" comment="Milestone - Working prototype">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/pretty_loading_bar_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/BarLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/BarLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/CharLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/CharLibrary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/DefaultBarLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/DefaultBarLayout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/PrettyLoadingBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/PrettyLoadingBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +50,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/ever1/IdeaProjects/untitled&quot;,
@@ -50,10 +59,10 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -93,8 +102,18 @@
       <workItem from="1692300855069" duration="7258000" />
       <workItem from="1692308126689" duration="239000" />
       <workItem from="1692389233343" duration="5414000" />
-      <workItem from="1692475412656" duration="1815000" />
+      <workItem from="1692475412656" duration="4810000" />
+      <workItem from="1692535696315" duration="3249000" />
     </task>
+    <task id="LOCAL-00001" summary="Milestone - Working prototype">
+      <option name="closed" value="true" />
+      <created>1692477501133</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1692477501133</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,10 +124,20 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Milestone - Working prototype" />
+    <option name="LAST_COMMIT_MESSAGE" value="Milestone - Working prototype" />
   </component>
 </project>

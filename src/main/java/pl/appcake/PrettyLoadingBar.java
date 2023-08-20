@@ -23,10 +23,10 @@ public class PrettyLoadingBar {
     int percentageDisplayPosition;
     double progressPercentage;
 
+
     //CONSTRUCTORS
     private PrettyLoadingBar(HolderForBuilder holder) {
-        barLayout = new DefaultBarLayout();
-
+        this.barLayout = holder.barLayout;
         this.totalTaskCountToComplete = holder.totalTaskCountToComplete;
         this.barLength = holder.barLength;
         this.labelPosition = holder.labelPosition;
@@ -52,7 +52,6 @@ public class PrettyLoadingBar {
             this.progressPercentage = (double) completedTasks / totalTaskCountToComplete * 100;
         }
         barLayout.renderBar(this);
-        // TODO DODAJ WYLICZANIE PROCENTOWEGO WSKAŹNIKA
     }
 
     /**
@@ -107,9 +106,9 @@ public class PrettyLoadingBar {
          */
         PrettyLoadingBarBuilder setTotalTaskCountToComplete(int totalTaskCountToComplete);
         PrettyLoadingBarBuilder setBarLength(int length);
-        PrettyLoadingBarBuilder setUndoneCharacter(String character);
-        PrettyLoadingBarBuilder setDoneCharacter(String character);
-        PrettyLoadingBarBuilder setBorderCharacter(String character);
+        PrettyLoadingBarBuilder setUncompletedCharacter(String character);
+        PrettyLoadingBarBuilder setCompletedCharacter(String character);
+        PrettyLoadingBarBuilder setBorderCharacter(String leftBorderCharacter, String rightBorderCharacter);
         PrettyLoadingBarBuilder setLabel(String label);
 
         /**
@@ -129,6 +128,7 @@ public class PrettyLoadingBar {
     }
 
     private static class HolderForBuilder {
+        BarLayout barLayout = new DefaultBarLayout();
         int barLength = DEFAULT_LENGTH;
         int totalTaskCountToComplete;
         int labelPosition = DEFAULT_LABEL_POSITION;
@@ -136,6 +136,7 @@ public class PrettyLoadingBar {
         String description = EMPTY_TEXT;
         boolean displayPercentage = DEFAULT_PERCENTAGE_DISPLAY;
         int percentageDisplayPosition = DEFAULT_PERCENTAGE_DISPLAY_POSITION;
+
     }
 
     private static class DefaultPrettyLoadingBarBuilder extends HolderForBuilder implements PrettyLoadingBarBuilder {
@@ -152,18 +153,21 @@ public class PrettyLoadingBar {
         }
 
         @Override
-        public PrettyLoadingBarBuilder setUndoneCharacter(String character) {
-            return null;
+        public PrettyLoadingBarBuilder setUncompletedCharacter(String character) {
+            barLayout.setUncompletedStepChar(character);
+            return this;
         }
 
         @Override
-        public PrettyLoadingBarBuilder setDoneCharacter(String character) {
-            return null;
+        public PrettyLoadingBarBuilder setCompletedCharacter(String character) {
+            barLayout.setCompletedStepChar(character);
+            return this;
         }
 
         @Override
-        public PrettyLoadingBarBuilder setBorderCharacter(String character) {
-            return null;
+        public PrettyLoadingBarBuilder setBorderCharacter(String leftBorderCharacter, String rightBorderCharacter) {
+            barLayout.setBorderCharacters(leftBorderCharacter, rightBorderCharacter);
+            return this;
         }
 
         @Override
@@ -200,6 +204,7 @@ public class PrettyLoadingBar {
 
         @Override
         public PrettyLoadingBarBuilder setStyle(String character) {
+            // TODO LAST - DOROBIĆ GOTOWE STYLE.
             return null;
         }
 
