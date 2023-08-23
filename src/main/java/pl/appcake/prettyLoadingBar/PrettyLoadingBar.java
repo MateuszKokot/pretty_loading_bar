@@ -1,4 +1,4 @@
-package pl.appcake;
+package pl.appcake.prettyLoadingBar;
 
 //TODO jest dzióra kiedy ktoś nie ilości kroków
 public class PrettyLoadingBar {
@@ -9,9 +9,13 @@ public class PrettyLoadingBar {
     private static final String EMPTY_TEXT = "";
     private static final boolean DEFAULT_PERCENTAGE_DISPLAY = true;
     private static final int DEFAULT_PERCENTAGE_DISPLAY_POSITION = 1;
+    public static final int LEFT = 0;
+    public static final int RIGHT = 1;
+
 
     // FIELDS
-    private final BarLayout barLayout;
+    private final Theme theme;
+    private final DrawerOperations drawer;
     private final int totalTaskCountToComplete;
     private final int barLength;
     private final double stepsPerTask;
@@ -26,7 +30,8 @@ public class PrettyLoadingBar {
 
     //CONSTRUCTORS
     private PrettyLoadingBar(HolderForBuilder holder) {
-        this.barLayout = holder.barLayout;
+        this.theme = holder.theme;
+        this.drawer = holder.drawer;
         this.totalTaskCountToComplete = holder.totalTaskCountToComplete;
         this.barLength = holder.barLength;
         this.labelPosition = holder.labelPosition;
@@ -35,23 +40,17 @@ public class PrettyLoadingBar {
         this.displayPercentage = holder.displayPercentage;
         this.percentageDisplayPosition = holder.percentageDisplayPosition;
 
-
         stepsPerTask = this.barLength / (double) this.totalTaskCountToComplete;
-        init();
     }
 
     //METHODS
-
-    private void init() {
-
-    }
 
     public void updateProgress(int completedTasks) {
         if (!(completedTasks > totalTaskCountToComplete)) {
             this.currentNumberOfSteps = completedTasks * stepsPerTask;
             this.progressPercentage = (double) completedTasks / totalTaskCountToComplete * 100;
         }
-        barLayout.renderBar(this);
+        drawer.renderBar(this);
     }
 
     /**
@@ -59,7 +58,7 @@ public class PrettyLoadingBar {
      *
      * @return instance of concrete Builder
      */
-    static PrettyLoadingBarBuilder getBuilder() {
+    public static PrettyLoadingBarBuilder getBuilder() {
         return new DefaultPrettyLoadingBarBuilder();
     }
 
@@ -95,40 +94,29 @@ public class PrettyLoadingBar {
     public double getProgressPercentage() {
         return progressPercentage;
     }
+    public Theme getTheme() {
+        return theme;
+    }
 
     // INNER CLASS & INTERFACES
-    interface PrettyLoadingBarBuilder {
-        /**
-         * This method sets how many steps loading bar pass
-         *
-         * @param totalTaskCountToComplete provides how many steps loading bar pass
-         * @return this
-         */
+    public interface PrettyLoadingBarBuilder {
         PrettyLoadingBarBuilder setTotalTaskCountToComplete(int totalTaskCountToComplete);
         PrettyLoadingBarBuilder setBarLength(int length);
         PrettyLoadingBarBuilder setUncompletedCharacter(String character);
         PrettyLoadingBarBuilder setCompletedCharacter(String character);
         PrettyLoadingBarBuilder setBorderCharacter(String leftBorderCharacter, String rightBorderCharacter);
         PrettyLoadingBarBuilder setLabel(String label);
-
-        /**
-         * @param label
-         * @param position defines position of label next to bar. 0=left / 1=right
-         * @return
-         */
         PrettyLoadingBarBuilder setLabel(String label, int position);
         PrettyLoadingBarBuilder setDescription(String description);
         PrettyLoadingBarBuilder setPercentageDisplay(boolean displayPercentage);
         PrettyLoadingBarBuilder setPercentageDisplay(boolean displayPercentage, int position);
         PrettyLoadingBarBuilder setStyle(String character);
-        /**
-         * @return built PrettyLoadingBar
-         */
         PrettyLoadingBar build();
     }
 
     private static class HolderForBuilder {
-        BarLayout barLayout = new DefaultBarLayout();
+        DrawerOperations drawer = new Drawer();
+        Theme theme = new DefaultTheme();
         int barLength = DEFAULT_LENGTH;
         int totalTaskCountToComplete;
         int labelPosition = DEFAULT_LABEL_POSITION;
@@ -154,19 +142,19 @@ public class PrettyLoadingBar {
 
         @Override
         public PrettyLoadingBarBuilder setUncompletedCharacter(String character) {
-            barLayout.setUncompletedStepChar(character);
+            theme.setUncompletedStepChar(character);
             return this;
         }
 
         @Override
         public PrettyLoadingBarBuilder setCompletedCharacter(String character) {
-            barLayout.setCompletedStepChar(character);
+            theme.setCompletedStepChar(character);
             return this;
         }
 
         @Override
         public PrettyLoadingBarBuilder setBorderCharacter(String leftBorderCharacter, String rightBorderCharacter) {
-            barLayout.setBorderCharacters(leftBorderCharacter, rightBorderCharacter);
+            theme.setBorderCharacters(leftBorderCharacter, rightBorderCharacter);
             return this;
         }
 

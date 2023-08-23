@@ -9,16 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69e64ea2-8525-417c-8672-e2193922e387" name="Changes" comment="Milestone - Working prototype">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/pretty_loading_bar_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="69e64ea2-8525-417c-8672-e2193922e387" name="Changes" comment="Core of library is working">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/DefaultTheme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/Drawer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/DrawerOperations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/Theme.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/BarLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/BarLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/CharLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/CharLibrary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/DefaultBarLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/DefaultBarLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/BarLayout.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/CharLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/CharLibrary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/DefaultBarLayout.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/PrettyLoadingBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/PrettyLoadingBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/PrettyLoadingBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/PrettyLoadingBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -72,7 +74,7 @@
       <module name="pretty_loading_bar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pl.appcake.*" />
+          <option name="PATTERN" value="pl.appcake.prettyLoadingBar.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,7 +105,9 @@
       <workItem from="1692308126689" duration="239000" />
       <workItem from="1692389233343" duration="5414000" />
       <workItem from="1692475412656" duration="4810000" />
-      <workItem from="1692535696315" duration="3249000" />
+      <workItem from="1692535696315" duration="4894000" />
+      <workItem from="1692646859895" duration="5153000" />
+      <workItem from="1692812826970" duration="5394000" />
     </task>
     <task id="LOCAL-00001" summary="Milestone - Working prototype">
       <option name="closed" value="true" />
@@ -113,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692477501133</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Core of library is working">
+      <option name="closed" value="true" />
+      <created>1692539318278</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1692539318278</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +150,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Milestone - Working prototype" />
-    <option name="LAST_COMMIT_MESSAGE" value="Milestone - Working prototype" />
+    <MESSAGE value="Core of library is working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Core of library is working" />
   </component>
 </project>

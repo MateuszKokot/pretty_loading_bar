@@ -1,4 +1,4 @@
-package pl.appcake;
+package pl.appcake.prettyLoadingBar;
 
 public class CharLibrary {
 
