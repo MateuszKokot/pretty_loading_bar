@@ -13,10 +13,15 @@ public class DefaultTheme implements Theme {
     private String rightBarBorderChar;
     private String completedStepChar;
     private String uncompletedStepChar;
-    static Map<String, DefaultTheme> themesContainerMap = new HashMap<String, DefaultTheme>() {{
-        put("default", new DefaultTheme(10,PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "<", ">", "|","_"));
-        put("classic", new DefaultTheme(10,PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "[", "]", "#","-"));
-    }};
+//    static Map<String, DefaultTheme> themesContainerMap = new HashMap<String, DefaultTheme>() {{
+//        put("default", new DefaultTheme(10,PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "<", ">", "|","_"));
+//        put("classic", new DefaultTheme(10,PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "[", "]", "#","-"));
+//    }};
+
+    static {
+        themesContainerMap.put("default", new DefaultTheme(10,PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "<", ">", "|","_"));
+        themesContainerMap.put("classic", new DefaultTheme(10,PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "[", "]", "#","-"));
+    }
 
     // CONSTRUCTORS
     DefaultTheme() {
@@ -36,25 +41,20 @@ public class DefaultTheme implements Theme {
     }
 
     // METHODS
+
+
     @Override
-    public void copyStyleFromLoadingBar(PrettyLoadingBar loadingBar) {
-        this.barLength = loadingBar.getBarLength();
-        labelPosition = loadingBar.getLabelPosition();
-        displayPercentage = loadingBar.isDisplayPercentage();
-        percentageDisplayPosition = loadingBar.getPercentageDisplayPosition();
-
-        DefaultTheme receivedTheme = (DefaultTheme) loadingBar.getTheme();
-        leftBarBorderChar = receivedTheme.getLeftBarBorderChar();
-        rightBarBorderChar = receivedTheme.getRightBarBorderChar();
-        completedStepChar = receivedTheme.getCompletedStepChar();
-        uncompletedStepChar = receivedTheme.getUncompletedStepChar();
-        //TODO zamienić gdzie się da na klonowanie obiektu bo to jest słąbe
-
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+    public static DefaultTheme copyStyleFromLoadingBar(PrettyLoadingBar loadingBar) throws CloneNotSupportedException {
+        DefaultTheme theme = (DefaultTheme) loadingBar.getTheme();
+        return (DefaultTheme) theme.clone();
     }
 
     @Override
-    public void addStyleToCollection(String nameOfTheme, Theme theme) {
-        themesContainerMap.put(nameOfTheme, (DefaultTheme) theme);
+    public void addStyleToCollection(String nameOfTheme) {
+        themesContainerMap.put(nameOfTheme, this);
     }
 
 

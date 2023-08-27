@@ -1,9 +1,10 @@
 package pl.appcake.prettyLoadingBar;
 
-public interface Theme {
-    void copyStyleFromLoadingBar(PrettyLoadingBar loadingBar);
+import java.util.*;
 
-    void addStyleToCollection(String nameOfTheme, Theme theme);
+public interface Theme extends Cloneable {
+    static HashMap<String, Theme> themesContainerMap = new HashMap<String, Theme>();
+    void addStyleToCollection(String nameOfTheme);
 
     String getLeftBarBorderChar();
 
