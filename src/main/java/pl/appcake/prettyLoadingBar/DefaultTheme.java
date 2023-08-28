@@ -1,11 +1,8 @@
 package pl.appcake.prettyLoadingBar;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class DefaultTheme implements Theme {
     // FIELDS
-    private int barLength;
+    private int barLength; // TODO zabezpieczyć zeb nie można było utworzyćpaska ani Theme bez uzupełnionych wszystkich pól
     private int labelPosition;
     private boolean displayPercentage;
     private int percentageDisplayPosition;
@@ -13,14 +10,10 @@ public class DefaultTheme implements Theme {
     private String rightBarBorderChar;
     private String completedStepChar;
     private String uncompletedStepChar;
-//    static Map<String, DefaultTheme> themesContainerMap = new HashMap<String, DefaultTheme>() {{
-//        put("default", new DefaultTheme(10,PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "<", ">", "|","_"));
-//        put("classic", new DefaultTheme(10,PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "[", "]", "#","-"));
-//    }};
 
     static {
-        themesContainerMap.put("default", new DefaultTheme(10,PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "<", ">", "|","_"));
-        themesContainerMap.put("classic", new DefaultTheme(10,PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "[", "]", "#","-"));
+        themesContainerMap.put("default", new DefaultTheme(10, PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "<", ">", "|", "_"));
+        themesContainerMap.put("classic", new DefaultTheme(10, PrettyLoadingBar.LEFT, true, PrettyLoadingBar.RIGHT, "[", "]", "#", "-"));
     }
 
     // CONSTRUCTORS
@@ -47,7 +40,8 @@ public class DefaultTheme implements Theme {
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
-    public static DefaultTheme copyStyleFromLoadingBar(PrettyLoadingBar loadingBar) throws CloneNotSupportedException {
+
+    public static DefaultTheme copyStyleFromExistingLoadingBar(PrettyLoadingBar loadingBar) throws CloneNotSupportedException {
         DefaultTheme theme = (DefaultTheme) loadingBar.getTheme();
         return (DefaultTheme) theme.clone();
     }
@@ -59,22 +53,25 @@ public class DefaultTheme implements Theme {
 
 
     // GETTERS & SETTERS
+    @Override
     public int getBarLength() {
         return barLength;
     }
 
+    @Override
     public int getLabelPosition() {
         return labelPosition;
     }
 
+    @Override
     public boolean isDisplayPercentage() {
         return displayPercentage;
     }
 
+    @Override
     public int getPercentageDisplayPosition() {
         return percentageDisplayPosition;
     }
-
 
     @Override
     public String getLeftBarBorderChar() {
@@ -96,18 +93,22 @@ public class DefaultTheme implements Theme {
         return uncompletedStepChar;
     }
 
+    @Override
     public void setBarLength(int barLength) {
         this.barLength = barLength;
     }
 
+    @Override
     public void setLabelPosition(int labelPosition) {
         this.labelPosition = labelPosition;
     }
 
+    @Override
     public void setDisplayPercentage(boolean displayPercentage) {
         this.displayPercentage = displayPercentage;
     }
 
+    @Override
     public void setPercentageDisplayPosition(int percentageDisplayPosition) {
         this.percentageDisplayPosition = percentageDisplayPosition;
     }

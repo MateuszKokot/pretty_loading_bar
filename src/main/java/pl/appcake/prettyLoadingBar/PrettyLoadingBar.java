@@ -1,6 +1,6 @@
 package pl.appcake.prettyLoadingBar;
 
-//TODO jest dzióra kiedy ktoś nie ilości kroków
+//TODO jest bug kiedy ktoś nie ilości kroków
 public class PrettyLoadingBar {
 
     // DEFAULT CONFIG
@@ -18,14 +18,11 @@ public class PrettyLoadingBar {
     private final Theme theme;
     private final DrawerOperations drawer;
     private final int totalTaskCountToComplete;
-    private final int barLength;
-    private final double stepsPerTask;
-    private double currentNumberOfSteps;
-    private int labelPosition;
     private String label;
     private String description;
-    boolean displayPercentage;
-    int percentageDisplayPosition;
+    // COUNTED FIELDS
+    private final double stepsPerTask;
+    private double currentNumberOfSteps;
     double progressPercentage;
 
 
@@ -34,14 +31,9 @@ public class PrettyLoadingBar {
         this.theme = holder.theme;
         this.drawer = holder.drawer;
         this.totalTaskCountToComplete = holder.totalTaskCountToComplete;
-        this.barLength = holder.barLength;
-        this.labelPosition = holder.labelPosition;
         this.label = holder.label;
         this.description = holder.description;
-        this.displayPercentage = holder.displayPercentage;
-        this.percentageDisplayPosition = holder.percentageDisplayPosition;
-
-        stepsPerTask = this.barLength / (double) this.totalTaskCountToComplete;
+        stepsPerTask = theme.getBarLength() / (double) this.totalTaskCountToComplete;
     }
 
     //METHODS
@@ -54,11 +46,6 @@ public class PrettyLoadingBar {
         drawer.renderBar(this);
     }
 
-    /**
-     * Method creating new instance of Builder
-     *
-     * @return instance of concrete Builder
-     */
     public static PrettyLoadingBarBuilder getBuilder() {
         return new DefaultPrettyLoadingBarBuilder();
     }
@@ -70,7 +57,7 @@ public class PrettyLoadingBar {
     }
 
     int getBarLength() {
-        return barLength;
+        return theme.getBarLength();
     }
 
     double getStepsPerTask() {
@@ -82,7 +69,7 @@ public class PrettyLoadingBar {
     }
 
     public int getLabelPosition() {
-        return labelPosition;
+        return theme.getLabelPosition();
     }
 
     public String getLabel() {
@@ -94,11 +81,11 @@ public class PrettyLoadingBar {
     }
 
     public boolean isDisplayPercentage() {
-        return displayPercentage;
+        return theme.isDisplayPercentage();
     }
 
     public int getPercentageDisplayPosition() {
-        return percentageDisplayPosition;
+        return theme.getPercentageDisplayPosition();
     }
 
     public double getProgressPercentage() {
@@ -127,9 +114,9 @@ public class PrettyLoadingBar {
 
         PrettyLoadingBarBuilder setDescription(String description);
 
-        PrettyLoadingBarBuilder setPercentageDisplay(boolean displayPercentage);
+        PrettyLoadingBarBuilder setDisplayPercentage(boolean displayPercentage);
 
-        PrettyLoadingBarBuilder setPercentageDisplay(boolean displayPercentage, int position);
+        PrettyLoadingBarBuilder setDisplayPercentage(boolean displayPercentage, int position);
 
         PrettyLoadingBarBuilder setStyle(String themeName);
 
@@ -139,13 +126,10 @@ public class PrettyLoadingBar {
     private static class HolderForBuilder {
         DrawerOperations drawer = new Drawer();
         Theme theme = new DefaultTheme();
-        int barLength = DEFAULT_LENGTH;
         int totalTaskCountToComplete;
-        int labelPosition = DEFAULT_LABEL_POSITION;
         String label = EMPTY_TEXT;
         String description = EMPTY_TEXT;
-        boolean displayPercentage = DEFAULT_PERCENTAGE_DISPLAY;
-        int percentageDisplayPosition = DEFAULT_PERCENTAGE_DISPLAY_POSITION;
+
 
     }
 
@@ -158,25 +142,25 @@ public class PrettyLoadingBar {
 
         @Override
         public PrettyLoadingBarBuilder setBarLength(int barLength) {
-            this.barLength = barLength;
+            this.theme.setBarLength(barLength);
             return this;
         }
 
         @Override
         public PrettyLoadingBarBuilder setUncompletedCharacter(String character) {
-            theme.setUncompletedStepChar(character);
+            this.theme.setUncompletedStepChar(character);
             return this;
         }
 
         @Override
         public PrettyLoadingBarBuilder setCompletedCharacter(String character) {
-            theme.setCompletedStepChar(character);
+            this.theme.setCompletedStepChar(character);
             return this;
         }
 
         @Override
         public PrettyLoadingBarBuilder setBorderCharacter(String leftBorderCharacter, String rightBorderCharacter) {
-            theme.setBorderCharacters(leftBorderCharacter, rightBorderCharacter);
+            this.theme.setBorderCharacters(leftBorderCharacter, rightBorderCharacter);
             return this;
         }
 
@@ -189,7 +173,7 @@ public class PrettyLoadingBar {
         @Override
         public PrettyLoadingBarBuilder setLabel(String label, int position) {
             this.label = label;
-            this.labelPosition = position;
+            this.theme.setLabelPosition(position);
             return this;
         }
 
@@ -200,24 +184,22 @@ public class PrettyLoadingBar {
         }
 
         @Override
-        public PrettyLoadingBarBuilder setPercentageDisplay(boolean displayPercentage) {
-            this.displayPercentage = displayPercentage;
+        public PrettyLoadingBarBuilder setDisplayPercentage(boolean displayPercentage) {
+            theme.setDisplayPercentage(displayPercentage);
             return this;
         }
 
         @Override
-        public PrettyLoadingBarBuilder setPercentageDisplay(boolean displayPercentage, int position) {
-            this.displayPercentage = displayPercentage;
-            this.percentageDisplayPosition = position;
+        public PrettyLoadingBarBuilder setDisplayPercentage(boolean displayPercentage, int position) {
+            this.theme.setDisplayPercentage(displayPercentage);
+            this.theme.setPercentageDisplayPosition(position);
             return this;
         }
 
         @Override
         public PrettyLoadingBarBuilder setStyle(String themeName) {
             Theme defaultTheme = Theme.themesContainerMap.get(DEFAULT_THEME);
-            theme = Theme.themesContainerMap.getOrDefault(themeName, defaultTheme);
-
-            // TODO nie kopiuje wszystiego klonem bo nie wsyztko jest przechowywane w THEME. Rozważyć przeniesienie tam pól
+            this.theme = Theme.themesContainerMap.getOrDefault(themeName, defaultTheme);
             return this;
         }
 

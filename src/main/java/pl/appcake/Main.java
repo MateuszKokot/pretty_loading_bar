@@ -2,12 +2,11 @@ package pl.appcake;
 
 import pl.appcake.prettyLoadingBar.DefaultTheme;
 import pl.appcake.prettyLoadingBar.PrettyLoadingBar;
-import pl.appcake.prettyLoadingBar.Theme;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-        int tasks = 140;
+        int tasks = 50;
 
 
 
@@ -15,7 +14,7 @@ public class Main {
         PrettyLoadingBar loadingBar = PrettyLoadingBar.getBuilder()
                 .setTotalTaskCountToComplete(tasks)
                 .setBarLength(40)
-                .setPercentageDisplay(true, 1)
+                .setDisplayPercentage(true, 1)
                 .setLabel("Przytulanie kotka", 0)
                 .setDescription("Pasek wskazuje czy kotek jest już Wygłaskany")
                 .setBorderCharacter("[","]")
@@ -30,7 +29,7 @@ public class Main {
         }
 
         try {
-            DefaultTheme newTheme = DefaultTheme.copyStyleFromLoadingBar(loadingBar);
+            DefaultTheme newTheme = DefaultTheme.copyStyleFromExistingLoadingBar(loadingBar);
             newTheme.setCompletedStepChar("X");
             newTheme.addStyleToCollection("Iksowa");
 
@@ -40,6 +39,7 @@ public class Main {
 
         PrettyLoadingBar loadingBar22 = PrettyLoadingBar.getBuilder()
                 .setStyle("Iksowa")
+                .setTotalTaskCountToComplete(tasks)
                 .build();
 
         for (int i = 1; i <= tasks + 10; i++) {
