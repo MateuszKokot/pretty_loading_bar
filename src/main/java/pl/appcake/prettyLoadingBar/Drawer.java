@@ -4,6 +4,7 @@ public class Drawer implements DrawerOperations {
     @Override
     public void renderBar(PrettyLoadingBar prettyLoadingBar) {
 
+        // TODO POPRAWIĆ ŻEBY PO ZAKOŃĆZENIU PASKA PRZESKAKIWAŁO DO NOWEJ LINI
         int uncompletedSteps = prettyLoadingBar.getBarLength() - (int) prettyLoadingBar.getCurrentNumberOfSteps();
         int currentNumberOfSteps = (int) prettyLoadingBar.getCurrentNumberOfSteps();
 

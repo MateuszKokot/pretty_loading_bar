@@ -9,12 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69e64ea2-8525-417c-8672-e2193922e387" name="Changes" comment="First part of work at Themes.">
+    <list default="true" id="69e64ea2-8525-417c-8672-e2193922e387" name="Changes" comment="Transferred fields to Theme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/CharLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/CharLibrary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/DefaultTheme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/DefaultTheme.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/PrettyLoadingBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/PrettyLoadingBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/Theme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/appcake/prettyLoadingBar/Theme.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +103,8 @@
       <workItem from="1692646859895" duration="5153000" />
       <workItem from="1692812826970" duration="5457000" />
       <workItem from="1693167647428" duration="4598000" />
-      <workItem from="1693240737123" duration="4307000" />
+      <workItem from="1693240737123" duration="4662000" />
+      <workItem from="1695577168895" duration="3192000" />
     </task>
     <task id="LOCAL-00001" summary="Milestone - Working prototype">
       <option name="closed" value="true" />
@@ -138,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693173247435</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Transferred fields to Theme">
+      <option name="closed" value="true" />
+      <created>1693245622752</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1693245622753</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +174,7 @@
     <MESSAGE value="Core of library is working" />
     <MESSAGE value="Added styles" />
     <MESSAGE value="First part of work at Themes." />
-    <option name="LAST_COMMIT_MESSAGE" value="First part of work at Themes." />
+    <MESSAGE value="Transferred fields to Theme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Transferred fields to Theme" />
   </component>
 </project>

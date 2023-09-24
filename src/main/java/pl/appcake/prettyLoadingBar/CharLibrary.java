@@ -9,6 +9,20 @@ public class CharLibrary {
     public static final String NOTHING = "";
 
 
+    // "LEFT BORDER" "CHAR LIBRARY
+    /**
+     * Gives string "["
+     */
+    public static final String LEFT_BRACKET = "\u005B";
+
+
+    // "RIGHT BORDER" "CHAR LIBRARY
+    /**
+     * Gives string "]"
+     */
+    public static final String RIGHT_BRACKET = "\u005D";
+
+
     // "UNCOMPLETED" "CHAR LIBRARY
     /**
      * Gives string "□"

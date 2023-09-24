@@ -6,45 +6,48 @@ import pl.appcake.prettyLoadingBar.PrettyLoadingBar;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
+        // INIT VARIABLES
         int tasks = 50;
 
 
-
-
-        PrettyLoadingBar loadingBar = PrettyLoadingBar.getBuilder()
+        // VARIANT 1
+        // PREPARE YOUR LOADING BAR
+        PrettyLoadingBar loadingBarVARIANT_1 = PrettyLoadingBar.getBuilder()
                 .setTotalTaskCountToComplete(tasks)
                 .setBarLength(40)
-                .setDisplayPercentage(true, 1)
-                .setLabel("Przytulanie kotka", 0)
-                .setDescription("Pasek wskazuje czy kotek jest już Wygłaskany")
-                .setBorderCharacter("[","]")
-                .setCompletedCharacter("#")
-                .setUncompletedCharacter("=")
+                .setLabel("Bar's label", PrettyLoadingBar.LEFT)
+                .setDescription("Pretty loading bar description")
                 .build();
-
+        // USE YOUR LOADING BAR
         for (int i = 1; i <= tasks + 10; i++) {
-
-            loadingBar.updateProgress(i);
+            loadingBarVARIANT_1.updateProgress(i);
             Thread.sleep(100);
         }
 
+
+
+
+        // VARIANT 2
+        // COPY FROM EXISTING LOADING BAR AND ADD OWN MODIFICATIONS
         try {
-            DefaultTheme newTheme = DefaultTheme.copyStyleFromExistingLoadingBar(loadingBar);
+            DefaultTheme newTheme = DefaultTheme.copyStyleFromExistingLoadingBar(loadingBarVARIANT_1);
+            newTheme.setBarLength(10);
             newTheme.setCompletedStepChar("X");
-            newTheme.addStyleToCollection("Iksowa");
+            newTheme.setUncompletedStepChar("m");
+            newTheme.setBorderCharacters("*&*","*&*");
+            newTheme.addStyleToCollection("XMas");
 
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }
-
-        PrettyLoadingBar loadingBar22 = PrettyLoadingBar.getBuilder()
-                .setStyle("Iksowa")
+        // PREPARE YOUR LOADING BAR
+        PrettyLoadingBar loadingBarVARIANT_2 = PrettyLoadingBar.getBuilder()
+                .setStyle("XMas")
                 .setTotalTaskCountToComplete(tasks)
                 .build();
-
+        // USE YOUR LOADING BAR
         for (int i = 1; i <= tasks + 10; i++) {
-
-            loadingBar22.updateProgress(i);
+            loadingBarVARIANT_2.updateProgress(i);
             Thread.sleep(100);
         }
 

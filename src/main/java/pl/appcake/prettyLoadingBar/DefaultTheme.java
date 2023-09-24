@@ -1,8 +1,10 @@
 package pl.appcake.prettyLoadingBar;
 
+import java.util.Calendar;
+
 public class DefaultTheme implements Theme {
     // FIELDS
-    private int barLength; // TODO zabezpieczyć zeb nie można było utworzyćpaska ani Theme bez uzupełnionych wszystkich pól
+    private int barLength;
     private int labelPosition;
     private boolean displayPercentage;
     private int percentageDisplayPosition;
@@ -18,6 +20,14 @@ public class DefaultTheme implements Theme {
 
     // CONSTRUCTORS
     DefaultTheme() {
+        barLength = 10;
+        labelPosition = PrettyLoadingBar.LEFT;
+        displayPercentage = true;
+        percentageDisplayPosition = PrettyLoadingBar.RIGHT;
+        leftBarBorderChar = CharLibrary.LEFT_BRACKET;
+        rightBarBorderChar = CharLibrary.RIGHT_BRACKET;
+        completedStepChar = CharLibrary.SQUARE_FILLED;
+        uncompletedStepChar = CharLibrary.SQUARE_EMPTY;
     }
 
     public DefaultTheme(int barLength, int labelPosition, boolean displayPercentage,
@@ -34,8 +44,6 @@ public class DefaultTheme implements Theme {
     }
 
     // METHODS
-
-
     @Override
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
