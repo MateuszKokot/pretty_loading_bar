@@ -24,6 +24,7 @@ public class PrettyLoadingBar {
     private final double stepsPerTask;
     private double currentNumberOfSteps;
     double progressPercentage;
+    int completedTasks;
 
 
     //CONSTRUCTORS
@@ -39,6 +40,7 @@ public class PrettyLoadingBar {
     //METHODS
 
     public void updateProgress(int completedTasks) {
+        this.completedTasks = completedTasks;
         if (!(completedTasks > totalTaskCountToComplete)) {
             this.currentNumberOfSteps = completedTasks * stepsPerTask;
             this.progressPercentage = (double) completedTasks / totalTaskCountToComplete * 100;
@@ -94,6 +96,10 @@ public class PrettyLoadingBar {
 
     public Theme getTheme() {
         return theme;
+    }
+
+    public int getCompletedTasks() {
+        return completedTasks;
     }
 
     // INNER CLASS & INTERFACES
