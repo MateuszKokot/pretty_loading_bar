@@ -26,8 +26,8 @@ public class DefaultTheme implements Theme {
         percentageDisplayPosition = PrettyLoadingBar.RIGHT;
         leftBarBorderChar = CharLibrary.LEFT_BRACKET;
         rightBarBorderChar = CharLibrary.RIGHT_BRACKET;
-        completedStepChar = CharLibrary.SQUARE_FILLED;
-        uncompletedStepChar = CharLibrary.SQUARE_EMPTY;
+        completedStepChar = CharLibrary.PLUS;
+        uncompletedStepChar = CharLibrary.MINUS;
     }
 
     public DefaultTheme(int barLength, int labelPosition, boolean displayPercentage,
